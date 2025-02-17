@@ -84,40 +84,43 @@ class _HomeScreenState extends State<HomeScreen2> {
                   itemBuilder: (context, index) {
                     final word = filteredWords[index];
                     return SizedBox(
-                      height: 80,
-                      child: ListTile(
-                        title: Text(
-                          word.word,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w500),
-                        ),
-                        trailing: GestureDetector(
-                          onTap: () {
-                            print('Yes!');
-                          },
-                          child: Icon(
-                            color: Colors.black45,
-                            Icons.bookmark_border_rounded,
+                      height: 70,
+                      child: Center(
+                        child: ListTile(
+                          contentPadding: EdgeInsets.symmetric(horizontal: 30),
+                          title: Text(
+                            word.word,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w500),
                           ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DetailScreen(
-                                name: word.word,
-                                meaning1: word.meaning1,
-                                meaning2: word.meaning2,
-                                meaning3: word.meaning3,
-                                subtitle: word.subtitle,
-                                refer: word.refer,
-                                simil: word.simil,
-                                body: word.body,
-                                note: word.note,
-                              ),
+                          trailing: GestureDetector(
+                            onTap: () {
+                              print('Yes!');
+                            },
+                            child: Icon(
+                              color: Colors.black45,
+                              Icons.bookmark_border_rounded,
                             ),
-                          );
-                        },
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailScreen(
+                                  name: word.word,
+                                  meaning1: word.meaning1,
+                                  meaning2: word.meaning2,
+                                  meaning3: word.meaning3,
+                                  subtitle: word.subtitle,
+                                  refer: word.refer,
+                                  simil: word.simil,
+                                  body: word.body,
+                                  note: word.note,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     );
                   },
