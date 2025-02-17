@@ -19,14 +19,28 @@ class _HomeScreenState extends State<HomeScreen2> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          titleSpacing: 30,
-          toolbarHeight: 80,
-          centerTitle: false,
-          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.menu_book))],
-          backgroundColor: Colors.white,
-          shadowColor: Colors.black,
-          elevation: 0,
-          title: Text('타이포그래피 인덱스')),
+        titleSpacing: 30,
+        toolbarHeight: 80,
+        centerTitle: false,
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 20),
+            child: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.menu_book,
+                  color: Colors.black87,
+                )),
+          )
+        ],
+        backgroundColor: Colors.white,
+        shadowColor: Colors.black,
+        title: Text(
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+            ),
+            '타이포그래피 인덱스'),
+      ),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
@@ -70,8 +84,22 @@ class _HomeScreenState extends State<HomeScreen2> {
                   itemBuilder: (context, index) {
                     final word = filteredWords[index];
                     return SizedBox(
-                      height: 90,
-                      child: GestureDetector(
+                      height: 80,
+                      child: ListTile(
+                        title: Text(
+                          word.word,
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
+                        ),
+                        trailing: GestureDetector(
+                          onTap: () {
+                            print('Yes!');
+                          },
+                          child: Icon(
+                            color: Colors.black45,
+                            Icons.bookmark_border_rounded,
+                          ),
+                        ),
                         onTap: () {
                           Navigator.push(
                             context,
@@ -90,33 +118,6 @@ class _HomeScreenState extends State<HomeScreen2> {
                             ),
                           );
                         },
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 30),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                word.word,
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w500),
-                              ),
-                              Icon(Icons.bookmark_border_rounded),
-                            ],
-                          ),
-                        ),
-                        // Container(
-                        //   decoration: BoxDecoration(
-                        //       // color: Colors.white,
-                        //       ),
-                        //   height: 40,
-                        //   margin: EdgeInsets.symmetric(horizontal: 30),
-                        //   alignment: Alignment.centerLeft,
-                        //   child: Text(
-                        //     word.word,
-                        //     style: TextStyle(
-                        //         fontSize: 18, fontWeight: FontWeight.w500),
-                        //   ),
-                        // ),
                       ),
                     );
                   },
@@ -139,24 +140,24 @@ class _HomeScreenState extends State<HomeScreen2> {
         hintText: "Search...",
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.greenAccent,
+            color: Colors.black45,
             width: 1,
           ),
         ),
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.greenAccent, width: 1.25),
+          borderSide: BorderSide(color: Colors.black45, width: 1.25),
         ),
-        focusColor: Colors.greenAccent,
-        hintStyle: TextStyle(color: Colors.greenAccent),
+        focusColor: Colors.black45,
+        hintStyle: TextStyle(color: Colors.black45),
         prefixIcon: Icon(
           Icons.search,
-          color: Colors.greenAccent,
+          color: Colors.black45,
         ),
         suffixIcon: _searchQuery.isNotEmpty
             ? IconButton(
                 icon: Icon(
                   Icons.clear,
-                  color: Colors.greenAccent,
+                  color: Colors.black45,
                 ),
                 onPressed: () {
                   setState(() {
