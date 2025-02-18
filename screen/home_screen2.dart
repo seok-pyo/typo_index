@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:typo_index/screen/bookmark_screen.dart';
 import 'package:typo_index/screen/detail_screen.dart';
 import 'package:typo_index/service/typography_model.dart';
 
@@ -26,7 +27,14 @@ class _HomeScreenState extends State<HomeScreen2> {
           Padding(
             padding: EdgeInsets.only(right: 20),
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BookmarkScreen(),
+                    ),
+                  );
+                },
                 icon: Icon(
                   Icons.menu_book,
                   color: Colors.black87,

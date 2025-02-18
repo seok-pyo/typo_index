@@ -8,8 +8,8 @@ class DetailScreen extends StatelessWidget {
       subtitle,
       refer,
       note,
-      body,
-      simil;
+      simil,
+      body;
 
   const DetailScreen({
     super.key,
